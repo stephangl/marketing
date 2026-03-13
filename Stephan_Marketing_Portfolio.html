@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stephan | Marketing Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0C0F14;
+  --bg-card: #151920;
+  --bg-card-hover: #1a2029;
+  --accent: #4A90D9;
+  --accent-light: #6AABF0;
+  --accent-glow: rgba(74, 144, 217, 0.15);
+  --text: #E8ECF1;
+  --text-muted: #8B95A5;
+  --text-dim: #5A6477;
+  --border: rgba(255,255,255,0.06);
+  --gradient-1: linear-gradient(135deg, #4A90D9, #7B68EE);
+  --gradient-2: linear-gradient(135deg, #2D7DD2, #45B7D1);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 2rem;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -40%; left: -20%;
+  width: 80vw; height: 80vw;
+  background: radial-gradient(circle, rgba(74,144,217,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -30%; right: -15%;
+  width: 60vw; height: 60vw;
+  background: radial-gradient(circle, rgba(123,104,238,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-inner {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+}
+.hero-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid rgba(74,144,217,0.3);
+  padding: 0.4rem 1.2rem;
+  border-radius: 100px;
+  margin-bottom: 2rem;
+  animation: fadeUp 0.8s ease both;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 600;
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+  animation: fadeUp 0.8s 0.15s ease both;
+}
+.hero h1 .gradient-text {
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero p {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 580px;
+  margin: 0 auto 2.5rem;
+  animation: fadeUp 0.8s 0.3s ease both;
+}
+.hero-cta {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeUp 0.8s 0.45s ease both;
+}
+.btn {
+  padding: 0.85rem 2rem;
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+}
+.btn-primary {
+  background: var(--gradient-1);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(74,144,217,0.3);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(74,144,217,0.4); }
+.btn-outline {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ===== STATS BAR ===== */
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.stat-item {
+  background: var(--bg);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+}
+.stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-top: 0.4rem;
+}
+
+/* ===== SECTIONS ===== */
+section {
+  padding: 6rem 2rem;
+}
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.section-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.section-desc {
+  color: var(--text-muted);
+  max-width: 600px;
+  margin-bottom: 3rem;
+  font-size: 1.05rem;
+}
+
+/* ===== CASE STUDIES ===== */
+.case-studies-grid {
+  display: grid;
+  gap: 2rem;
+}
+.case-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+.case-card:hover {
+  border-color: rgba(74,144,217,0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+.case-card-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 400px;
+}
+@media (max-width: 768px) {
+  .case-card-inner { grid-template-columns: 1fr; }
+}
+.case-visual {
+  position: relative;
+  overflow: hidden;
+  min-height: 300px;
+}
+.case-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.case-card:hover .case-visual img { transform: scale(1.05); }
+.case-content {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.case-type {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+.case-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.case-desc {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+.case-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.metric {
+  padding: 1rem;
+  background: rgba(74,144,217,0.06);
+  border-radius: 10px;
+  border: 1px solid rgba(74,144,217,0.1);
+}
+.metric-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent-light);
+}
+.metric-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 0.2rem;
+}
+.case-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.tag {
+  font-size: 0.72rem;
+  padding: 0.3rem 0.8rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  color: var(--text-muted);
+}
+
+/* ===== EXPANDED CASE STUDY ===== */
+.case-expanded {
+  display: none;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 3rem;
+  margin-top: -0.5rem;
+  animation: slideDown 0.4s ease;
+}
+.case-expanded.active { display: block; }
+.case-expanded h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: var(--accent-light);
+}
+.case-expanded p, .case-expanded li {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+.case-expanded ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+.case-expanded li {
+  padding: 0.4rem 0 0.4rem 1.5rem;
+  position: relative;
+}
+.case-expanded li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.85rem;
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+.close-expanded {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+.close-expanded:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ===== SERVICES ===== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+.service-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 2.2rem;
+  transition: all 0.3s ease;
+}
+.service-card:hover { border-color: rgba(74,144,217,0.2); background: var(--bg-card-hover); }
+.service-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--accent-glow);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  margin-bottom: 1.2rem;
+}
+.service-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  margin-bottom: 0.6rem;
+}
+.service-card p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* ===== TESTIMONIALS ===== */
+.testimonials-section { background: var(--bg-card); }
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+.testimonial-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 2.2rem;
+  position: relative;
+}
+.testimonial-card::before {
+  content: '\201C';
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  color: var(--accent);
+  opacity: 0.3;
+  position: absolute;
+  top: 0.8rem;
+  left: 1.5rem;
+  line-height: 1;
+}
+.testimonial-text {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  padding-top: 1.5rem;
+  font-style: italic;
+}
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.author-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--gradient-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fff;
+}
+.author-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.author-role {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+}
+
+/* ===== EXPERIENCE TIMELINE ===== */
+.timeline {
+  position: relative;
+  padding-left: 3rem;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--accent), var(--border));
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -3rem;
+  top: 0.5rem;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--accent);
+}
+.timeline-item:first-child::before {
+  background: var(--accent);
+  box-shadow: 0 0 12px rgba(74,144,217,0.4);
+}
+.timeline-date {
+  font-size: 0.75rem;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+.timeline-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.15rem;
+}
+.timeline-company {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+.timeline-desc {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* ===== FOOTER / CONTACT ===== */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 4rem 2rem;
+  text-align: center;
+}
+.footer-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin-bottom: 1rem;
+}
+.footer-desc {
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  font-size: 1.05rem;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+.footer-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+.footer-links a:hover { color: var(--accent); }
+.footer-copy {
+  color: var(--text-dim);
+  font-size: 0.78rem;
+}
+
+/* ===== NAV ===== */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(12,15,20,0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+nav.scrolled { border-bottom-color: var(--border); }
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+}
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+.nav-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease;
+}
+.nav-links a:hover { color: var(--text); }
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== IMAGE GALLERY WITHIN CASE STUDY ===== */
+.case-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+.case-gallery img {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+/* ===== TOOLS GRID ===== */
+.tools-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 2rem;
+}
+.tool-badge {
+  padding: 0.5rem 1rem;
+  background: rgba(74,144,217,0.06);
+  border: 1px solid rgba(74,144,217,0.12);
+  border-radius: 100px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">Stephan Looten</a>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#services">Expertise</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-tag">Marketing &middot; Growth &middot; Strategy</span>
+    <h1>Driving Growth<br>Through <span class="gradient-text">Data &amp; Creativity</span></h1>
+    <p>8+ years turning ad budgets into revenue engines. From $0.38 leads to $1M product launches, I blend paid media, social strategy, and marketing technology to move the needle.</p>
+    <div class="hero-cta">
+      <a href="#work" class="btn btn-primary">View My Work</a>
+      <a href="#contact" class="btn btn-outline">Get In Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-item fade-in">
+    <div class="stat-number">400%</div>
+    <div class="stat-label">Web Traffic Increase</div>
+  </div>
+  <div class="stat-item fade-in">
+    <div class="stat-number">7x</div>
+    <div class="stat-label">ROAS on Paid Campaigns</div>
+  </div>
+  <div class="stat-item fade-in">
+    <div class="stat-number">$1M+</div>
+    <div class="stat-label">Revenue Generated</div>
+  </div>
+  <div class="stat-item fade-in">
+    <div class="stat-number">86K</div>
+    <div class="stat-label">Followers Grown from Zero</div>
+  </div>
+  <div class="stat-item fade-in">
+    <div class="stat-number">$0.38</div>
+    <div class="stat-label">Lowest CPL Achieved</div>
+  </div>
+</div>
+
+<!-- CASE STUDIES -->
+<section id="work">
+  <div class="container">
+    <div class="section-label fade-in">Selected Work</div>
+    <div class="section-title fade-in">Case Studies</div>
+    <div class="section-desc fade-in">Real campaigns, real metrics. Here's how I've driven results across paid media, social management, e-commerce, and lead generation.</div>
+
+    <div class="case-studies-grid">
+
+      <!-- CASE 1: Facebook Ads - E-commerce -->
+      <div class="case-card fade-in" onclick="toggleCase('case1')">
+        <div class="case-card-inner">
+          <div class="case-visual" style="background: linear-gradient(135deg, #1a1a2e, #16213e); display: flex; align-items: center; justify-content: center; padding: 2rem;">
+            <div style="text-align: center;">
+              <div style="font-size: 3.5rem; margin-bottom: 0.5rem;">📊</div>
+              <div style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">$76.8K</div>
+              <div style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.3rem;">Total Ad Spend Managed</div>
+            </div>
+          </div>
+          <div class="case-content">
+            <div class="case-type">Facebook Ads &middot; E-Commerce</div>
+            <div class="case-title">Scaling Shopify Stores via Facebook Ads</div>
+            <div class="case-desc">Managed Facebook ad campaigns across multiple Shopify e-commerce clients, driving purchases at scale through Lookalike Audiences, interest-based targeting, and systematic A/B testing of creative and copy.</div>
+            <div class="case-metrics">
+              <div class="metric">
+                <div class="metric-value">3,329</div>
+                <div class="metric-label">Total Purchases</div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">$23.08</div>
+                <div class="metric-label">Cost Per Purchase</div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">11.4M</div>
+                <div class="metric-label">People Reached</div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">33.1M</div>
+                <div class="metric-label">Impressions</div>
+              </div>
+            </div>
+            <div class="case-tags">
+              <span class="tag">Facebook Ads</span>
+              <span class="tag">Shopify</span>
+              <span class="tag">E-Commerce</span>
+              <span class="tag">Lookalike Audiences</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="case-expanded" id="case1">
+        <h3>The Challenge</h3>
+        <p>Multiple e-commerce clients on Shopify needed scalable paid acquisition to drive direct purchases. Each had different audiences, price points, and product categories requiring tailored approaches.</p>
+        <h3 style="margin-top: 1.5rem;">My Approach</h3>
+        <ul>
+          <li>Built out campaign structures using Lookalike Audiences (LAAs) stacked with interest-based targeting for initial prospecting</li>
+          <li>Ran DR (Direct Response) and SNIPER campaigns with tight bid caps to control cost per purchase</li>
+          <li>Tested across US, worldwide, and niche demographic segments (e.g., Muslim/Arab countries for a specific product line)</li>
+          <li>Managed 50+ concurrent campaigns with a combined spend of $76,826 in a single quarter</li>
+          <li>Continuously iterated on ad creative &mdash; product shots, lifestyle imagery, and video ads</li>
+        </ul>
+        <h3>Results</h3>
+        <ul>
+          <li>3,329 purchases at $23.08 average cost per acquisition</li>
+          <li>11.4M people reached with 33.1M total impressions</li>
+          <li>10,193 checkouts initiated across campaigns</li>
+          <li>Profitable ROAS across top-performing campaigns, enabling clients to reinvest and scale</li>
+        </ul>
+        <button class="close-expanded" onclick="toggleCase('case1')">Close Details</button>
+      </div>
+
+      <!-- CASE 2: Lead Generation -->
+      <div class="case-card fade-in" onclick="toggleCase('case2')">
+        <div class="case-card-inner">
+          <div class="case-visual" style="background: linear-gradient(135deg, #0f2027, #203a43); display: flex; align-items: center; justify-content: center; padding: 2rem;">
+            <div style="text-align: center;">
+              <div style="font-size: 3.5rem; margin-bottom: 0.5rem;">🎯</div>
+              <div style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; background: var(--gradient-2); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">$2.27</div>
+              <div style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.3rem;">Lowest Cost Per Lead</div>
+            </div>
+          </div>
+          <div class="case-content">
+            <div class="case-type">Facebook Ads &middot; Lead Generation</div>
+            <div class="case-title">Local Business Lead Gen: Auto Detailing</div>
+            <div class="case-desc">Designed a full lead generation funnel for a local auto detailing business &mdash; from Facebook ad creative with urgency-driven copy, to a custom landing page with coupon opt-in, to back-end lead tracking.</div>
+            <div class="case-metrics">
+              <div class="metric">
+                <div class="metric-value">62</div>
+                <div class="metric-label">Leads Generated</div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">$6.86</div>
+                <div class="metric-label">Avg Cost Per Lead</div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">$425</div>
+                <div class="metric-label">Total Ad Spend</div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">$19.8K</div>
+                <div class="metric-label">Potential Revenue at 30% Close</div>
+              </div>
+            </div>
+            <div class="case-tags">
+              <span class="tag">Lead Generation</span>
+              <span class="tag">Landing Pages</span>
+              <span class="tag">Local Marketing</span>
+              <span class="tag">Funnel Design</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="case-expanded" id="case2">
+        <h3>The Challenge</h3>
+        <p>A local auto detailing center offering a $600 service needed a cost-effective way to bring in new customers. They had no prior digital advertising experience and relied entirely on foot traffic and word-of-mouth.</p>
+        <h3 style="margin-top: 1.5rem;">My Approach</h3>
+        <ul>
+          <li>Created a Facebook ad featuring an urgency-driven 50% off coupon offer with scarcity messaging (&ldquo;11 coupons left&rdquo;)</li>
+          <li>Built a custom opt-in landing page collecting name, email, and phone for lead capture</li>
+          <li>Ran multiple ad sets at different bid levels to find optimal CPL</li>
+          <li>Structured the funnel to qualify leads before they arrived &mdash; only people willing to share contact info moved forward</li>
+        </ul>
+        <h3>Results</h3>
+        <ul>
+          <li>62 qualified leads on just $425 in ad spend &mdash; $6.86 average cost per lead</li>
+          <li>Lowest CPL hit $2.27, proving the funnel concept at very low budgets</li>
+          <li>Scalability model showed: $1,000 spend = ~145 leads, with 10-30% close rates projecting $6,750&ndash;$19,800 in revenue</li>
+          <li>Client gained a repeatable, predictable system for new customer acquisition</li>
+        </ul>
+        <button class="close-expanded" onclick="toggleCase('case2')">Close Details</button>
+      </div>
+
+      <!-- CASE 3: Social Media Management -->
+      <div class="case-card fade-in" onclick="toggleCase('case3')">
+        <div class="case-card-inner">
+          <div class="case-visual" style="background: linear-gradient(135deg, #1a1a2e, #2d132c); display: flex; align-items: center; justify-content: center; padding: 2rem;">
+            <div style="text-align: center;">
+              <div style="font-size: 3.5rem; margin-bottom: 0.5rem;">📱</div>
+              <div style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; background: linear-gradient(135deg, #e74c3c, #e67e22); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">6+</div>
+              <div style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.3rem;">E-Commerce Brands Managed</div>
+            </div>
+          </div>
+          <div class="case-content">
+            <div class="case-type">Social Media Management &middot; SMMA</div>
+            <div class="case-title">E-Commerce Social Media Strategy at Envision Traffic</div>
+            <div class="case-desc">Managed social media accounts and ran Google Display Network ad campaigns for multiple e-commerce brands across fashion, food, wellness, and lifestyle niches &mdash; each with a tailored content and brand strategy.</div>
+            <div class="case-metrics">
+              <div class="metric">
+                <div class="metric-value">120%</div>
+                <div class="metric-label">Avg ROI Delivered</div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">$59.3K</div>
+                <div class="metric-label">Ad Budget Managed</div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">6.4M</div>
+                <div class="metric-label">Total Impressions</div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">400K</div>
+                <div class="metric-label">Link Clicks Driven</div>
+              </div>
+            </div>
+            <div class="case-tags">
+              <span class="tag">Instagram</span>
+              <span class="tag">Google Display</span>
+              <span class="tag">Content Strategy</span>
+              <span class="tag">Brand Management</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="case-expanded" id="case3">
+        <h3>The Challenge</h3>
+        <p>Envision Traffic worked with multiple e-commerce brands that needed professional social media management and paid advertising. Each brand had unique visual identities, target demographics, and growth goals.</p>
+        <h3 style="margin-top: 1.5rem;">Clients &amp; Approach</h3>
+        <ul>
+          <li><strong>Ola Bamboo</strong> &mdash; Eco-friendly e-commerce brand. Grew Instagram from 0 to 10K using viral content mixed with branded product posts.</li>
+          <li><strong>This Is Nuts (Sweden)</strong> &mdash; Followed website branding; created content featuring product photography, reviews, and nutrition-focused posts.</li>
+          <li><strong>Ayana Wellness</strong> &mdash; Focused on a strong visual aesthetic for the accessories niche, where visual appeal drives purchasing decisions.</li>
+          <li><strong>Wear Panda</strong> &mdash; Managed social for a leading eco-sunglasses brand, implementing a professional strategy aligned with their established brand voice.</li>
+          <li><strong>Lenna &amp; Grechka (London Bakery)</strong> &mdash; Created food photography-driven content strategy for Instagram growth.</li>
+          <li><strong>Volterre, Leenaz Fashion</strong> &mdash; Tailored strategies across Facebook, Instagram, and Pinterest based on what worked for each brand&rsquo;s audience.</li>
+        </ul>
+        <h3>Google Display Network Campaigns</h3>
+        <ul>
+          <li>Designed GDN display ads for multiple campaigns, including Firecape and other clients</li>
+          <li>Managed 19 campaigns totaling $59,370 in spend with 6.49M impressions</li>
+          <li>Achieved an 8% overall CTR with $0.11 average CPC and 400K+ total link clicks</li>
+        </ul>
+        <button class="close-expanded" onclick="toggleCase('case3')">Close Details</button>
+      </div>
+
+      <!-- CASE 4: Community Growth (Web3) -->
+      <div class="case-card fade-in" onclick="toggleCase('case4')">
+        <div class="case-card-inner">
+          <div class="case-visual" style="background: linear-gradient(135deg, #0d1117, #161b22); display: flex; align-items: center; justify-content: center; padding: 2rem;">
+            <div style="text-align: center;">
+              <div style="font-size: 3.5rem; margin-bottom: 0.5rem;">🚀</div>
+              <div style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; background: linear-gradient(135deg, #00b4d8, #48cae4); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">0 → 86K</div>
+              <div style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.3rem;">Followers in 4 Months</div>
+            </div>
+          </div>
+          <div class="case-content">
+            <div class="case-type">Community Growth &middot; Social Strategy</div>
+            <div class="case-title">Building Engaged Communities from Scratch</div>
+            <div class="case-desc">Served as social media and community manager for multiple digital brands, growing massive audiences organically and running campaigns that drove millions of impressions and real engagement.</div>
+            <div class="case-metrics">
+              <div class="metric">
+                <div class="metric-value">86K</div>
+                <div class="metric-label">Followers (Suteki)</div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">390K</div>
+                <div class="metric-label">Impressions in 45 Days</div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">15.72%</div>
+                <div class="metric-label">Engagement Rate</div>
+              </div>
+              <div class="metric">
+                <div class="metric-value">$1M+</div>
+                <div class="metric-label">Funding Raised</div>
+              </div>
+            </div>
+            <div class="case-tags">
+              <span class="tag">Twitter/X</span>
+              <span class="tag">Discord</span>
+              <span class="tag">Community Management</span>
+              <span class="tag">Organic Growth</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="case-expanded" id="case4">
+        <h3>Suteki &mdash; Collab &amp; Community Manager</h3>
+        <ul>
+          <li>Grew Twitter following from scratch to 86K within 4 months through organic strategy and viral content</li>
+          <li>Built a Discord community of 86,299 members with active daily engagement</li>
+          <li>Achieved a 6.2% average engagement rate through consistent content calendaring</li>
+          <li>Successfully launched a 10K NFT mint on Magic Eden&rsquo;s launchpad, leveraging marketing for a sold-out launch</li>
+          <li>Raised over $1M in funding through effective marketing campaigns</li>
+        </ul>
+        <h3>Roly Poly Visuals &mdash; Marketer &amp; Collab Manager</h3>
+        <ul>
+          <li>Grew social media from 0 to 5K followers in just 2 months with zero paid budget</li>
+          <li>Generated 390,776 impressions with 30,843 engagements in a 45-day period</li>
+          <li>Average impressions per tweet: 3,794 (up 379K%). Average engagements per tweet: 299 (up 29,900%)</li>
+          <li>Contributed to a 200% increase in brand engagement and 400% increase in brand exposure</li>
+          <li>Directed brand strategy, content creation, and animation trailer production</li>
+        </ul>
+        <h3>Subway Rats &mdash; Social Media &amp; Collab Manager</h3>
+        <ul>
+          <li>Created content resulting in a 100% increase in user engagement (likes, comments, shares)</li>
+          <li>Achieved 15.72% engagement rate with 1,927 likes and 1,721 retweets per period</li>
+          <li>Grew account to 38.3K followers through consistent community engagement and collaboration outreach</li>
+          <li>Implemented gamified perks for a game release, boosting product anticipation</li>
+          <li>Developed brand persona profiles for targeted marketing campaigns</li>
+        </ul>
+        <button class="close-expanded" onclick="toggleCase('case4')">Close Details</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES / EXPERTISE -->
+<section id="services">
+  <div class="container">
+    <div class="section-label fade-in">Expertise</div>
+    <div class="section-title fade-in">What I Bring to the Table</div>
+    <div class="section-desc fade-in">A rare blend of creative marketing instinct, technical execution, and data-driven optimization.</div>
+
+    <div class="services-grid">
+      <div class="service-card fade-in">
+        <div class="service-icon">📈</div>
+        <h3>Paid Media &amp; Performance Marketing</h3>
+        <p>Facebook Ads, Google Ads, Amazon Advertising. Budget management from $425 to $76K+. Campaign architecture, A/B testing, lookalike audiences, and bid optimization for maximum ROAS.</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">🎯</div>
+        <h3>Lead Generation &amp; Funnel Design</h3>
+        <p>End-to-end lead gen funnels &mdash; from ad creative with urgency hooks, to optimized landing pages, to CRM pipeline management. CPL as low as $0.38 per lead.</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">📱</div>
+        <h3>Social Media Strategy &amp; Growth</h3>
+        <p>Organic audience growth from zero to tens of thousands. Content calendaring, community management, engagement strategy, and brand voice development across Twitter, Instagram, Discord, and more.</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">💻</div>
+        <h3>Marketing Technology</h3>
+        <p>AI-powered lead scoring systems, tracking pixel implementation, heatmap analytics integration, Stripe payment flows, landing page development, and email marketing automation.</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">🛒</div>
+        <h3>E-Commerce &amp; Amazon FBA</h3>
+        <p>Scaled an FBA operation from launch to $1M in 12 months. Product research via Keepa, inventory management, Amazon advertising optimization, and multi-store operations.</p>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon">📊</div>
+        <h3>Data &amp; Analytics</h3>
+        <p>Python, SQL, Pandas, NumPy for marketing analytics. Campaign performance reporting, customer segmentation, and data-driven decision making backed by real numbers.</p>
+      </div>
+    </div>
+
+    <div class="tools-row fade-in">
+      <span class="tool-badge">Facebook Ads Manager</span>
+      <span class="tool-badge">Google Ads</span>
+      <span class="tool-badge">Google Analytics</span>
+      <span class="tool-badge">Amazon Advertising</span>
+      <span class="tool-badge">Keepa</span>
+      <span class="tool-badge">Wix</span>
+      <span class="tool-badge">Stripe</span>
+      <span class="tool-badge">Heatmap Analytics</span>
+      <span class="tool-badge">Python</span>
+      <span class="tool-badge">SQL</span>
+      <span class="tool-badge">Pandas</span>
+      <span class="tool-badge">REST APIs</span>
+      <span class="tool-badge">Email Automation</span>
+      <span class="tool-badge">Discord</span>
+      <span class="tool-badge">Buffer</span>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="testimonials-section">
+  <div class="container">
+    <div class="section-label fade-in">Testimonials</div>
+    <div class="section-title fade-in">What Clients Say</div>
+    <div class="section-desc fade-in">Feedback from clients and collaborators I've worked with.</div>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card fade-in">
+        <div class="testimonial-text">Stephan has proven himself to be a great professional. I was enchanted by his personality and professionalism from our first call, always disciplined and punctual. I fully trust his dedication and commitment to any project he commits to.</div>
+        <div class="testimonial-author">
+          <div class="author-avatar">DS</div>
+          <div>
+            <div class="author-name">Daniel Semanas</div>
+            <div class="author-role">Artist &amp; Creative Director</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card fade-in">
+        <div class="testimonial-text">Stephan played a critical role in our early stages in regards to collaborations and partnerships. As we grew, his ability to stay consistent, engaged, available, and provide value grew with us.</div>
+        <div class="testimonial-author">
+          <div class="author-avatar">T</div>
+          <div>
+            <div class="author-name">Tommy</div>
+            <div class="author-role">Operations Manager, Suteki</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card fade-in">
+        <div class="testimonial-text">His responsive communication and focus on achieving the goals of the project are unmatched. What's even more impressive is his proactive approach to identifying and tackling opportunities to grow our project without even needing to be asked.</div>
+        <div class="testimonial-author">
+          <div class="author-avatar">AM</div>
+          <div>
+            <div class="author-name">Alexander Meyer</div>
+            <div class="author-role">CEO</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-label fade-in">Career Path</div>
+    <div class="section-title fade-in">Professional Experience</div>
+    <div class="section-desc fade-in">8+ years of progressive growth across digital marketing, paid media, and marketing technology.</div>
+
+    <div class="timeline fade-in">
+      <div class="timeline-item">
+        <div class="timeline-date">January 2024 &mdash; Present</div>
+        <div class="timeline-title">Marketing Technology Specialist</div>
+        <div class="timeline-company">Veracity News LLC &middot; Orlando, FL</div>
+        <div class="timeline-desc">Built AI-powered lead qualification systems, grew social to 70K followers, managed paid advertising, designed email marketing strategy, and integrated heatmap analytics and Stripe payments.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">January 2022 &mdash; November 2023</div>
+        <div class="timeline-title">Marketing Manager</div>
+        <div class="timeline-company">Dcent Ventures &middot; Orlando, FL</div>
+        <div class="timeline-desc">Elevated web traffic by 400%, increased conversion rates by 25% via Facebook and Google Ads, led social media team, and built email marketing programs.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">June 2020 &mdash; December 2021</div>
+        <div class="timeline-title">Marketer / Lead Buyer</div>
+        <div class="timeline-company">Ecommerce.io &middot; Miami, FL</div>
+        <div class="timeline-desc">Scaled FBA operation from launch to $1M in 12 months. Managed Amazon advertising, analyzed performance metrics, and led product research and inventory decisions.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">April 2019 &mdash; March 2020</div>
+        <div class="timeline-title">Marketing Associate</div>
+        <div class="timeline-company">McGrover Funding &middot; Miami, FL</div>
+        <div class="timeline-desc">Executed targeted marketing blueprints, managed ads generating leads at $0.38 each, and championed lead generation with sophisticated software tools.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">July 2018 &mdash; March 2019</div>
+        <div class="timeline-title">Media Buyer</div>
+        <div class="timeline-company">Driftul &middot; Miami, FL</div>
+        <div class="timeline-desc">Administered $30K monthly ad budget yielding 7x ROAS. Conceived targeted Facebook campaigns with refined demographic targeting and A/B testing.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">January 2017 &mdash; June 2018</div>
+        <div class="timeline-title">Marketing Coordinator</div>
+        <div class="timeline-company">Envision Traffic &middot; Miami, FL</div>
+        <div class="timeline-desc">Delivered 120% ROI across campaigns, implemented rigorous testing programs, led customer segmentation initiatives, and managed social media for multiple e-commerce brands.</div>
+      </div>
+    </div>
+
+    <div style="margin-top: 3rem; padding: 2rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px;" class="fade-in">
+      <div style="display: flex; gap: 2rem; flex-wrap: wrap; align-items: center;">
+        <div>
+          <div style="font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem;">Education</div>
+          <div style="font-weight: 600;">B.S. Computer Science</div>
+          <div style="color: var(--text-muted); font-size: 0.9rem;">Florida International University &middot; Expected 2026</div>
+        </div>
+        <div style="width: 1px; height: 40px; background: var(--border);"></div>
+        <div>
+          <div style="font-weight: 600;">A.A. Psychology</div>
+          <div style="color: var(--text-muted); font-size: 0.9rem;">Miami Dade College &middot; 2014</div>
+        </div>
+        <div style="width: 1px; height: 40px; background: var(--border);"></div>
+        <div>
+          <div style="font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem;">Certifications</div>
+          <div style="color: var(--text-muted); font-size: 0.9rem;">Google Ads Measurement (2023) &middot; Advanced Social Media Strategy (2017)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact" class="footer">
+  <div class="container">
+    <div class="footer-title fade-in">Let's Work Together</div>
+    <div class="footer-desc fade-in">Looking for a marketing professional who combines creativity with data? Let's talk.</div>
+    <div class="hero-cta fade-in" style="margin-bottom: 3rem;">
+      <a href="mailto:sglooten@pm.me" class="btn btn-primary">Email Me</a>
+      <a href="https://linkedin.com/in/stephan-gl" class="btn btn-outline" target="_blank">LinkedIn</a>
+    </div>
+    <div class="footer-links fade-in">
+      <a href="#work">Case Studies</a>
+      <a href="#services">Expertise</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#experience">Experience</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 Stephan. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+// Nav scroll effect
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// Fade in observer
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Toggle case study expanded
+function toggleCase(id) {
+  const el = document.getElementById(id);
+  const isActive = el.classList.contains('active');
+  document.querySelectorAll('.case-expanded').forEach(e => e.classList.remove('active'));
+  if (!isActive) {
+    el.classList.add('active');
+    setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 100);
+  }
+}
+</script>
+</body>
+</html>
